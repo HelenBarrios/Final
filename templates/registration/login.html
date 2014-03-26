@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block login %}
+
+<p>Por favor ingresa tu nombre de usuario y tu password: </p>
+<form method="POST" action="/login/">
+{% csrf_token %}
+<table>
+	{{ login_form.as_table }}
+<tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{% endblock login %}

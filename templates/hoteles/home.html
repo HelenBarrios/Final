@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block menu %}
+{{ block.super }}
+{% endblock menu %}
+
+{% block content %}
+
+
+{{ block.super }}
+
+<div id="home">
+</div>
+<div id="famosos"></div>
+<div id="reservaciones">
+	<p>Reservaciones: {{ reservaciones }}</p>
+	</div>
+
+{% endblock content%}
+
+

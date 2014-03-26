@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block content %}
+{{ block.super }}
+<p>Elige tu destino favorito</p>
+
+<form action="{{ url }}" method="POST">
+  {% csrf_token %}
+  <table>
+  {{ reservaciones_form.as_table }}
+  </table>
+  <input type="submit" value="Reservar">
+</form>
+
+
+<h1>Detalle de tu reservación: </h1>
+{% for reservar in reservaciones  %}
+
+<ul>
+  <li>{{reservar.llegada}}</li>
+  <li>{{reservar.salida}}</li>
+  <li>{{reservar.habitaciones}}</li>
+  <li>{{reservar.ocupantes}}</li>
+  <li>{{reservar.precio}}</li>
+  <li>{{reservar.hotel}}</li>
+  <li>{{reservar.imagen}}</li>
+  {{reservar.Descripcion}}
+  </ul>
+{% endfor %}
+
+{% endblock content%}
